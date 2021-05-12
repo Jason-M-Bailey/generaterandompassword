@@ -6,13 +6,14 @@ var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lower = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "0123456789";
 var special = "!@,#$%&*{}[]/\\+=";
-var chosenCharacters = "";
 
-//write password function 
+var chosenCharacters = ""; // this is a bucket where the other arrays are added, then we'll use a charAt to randomly pick characters from the string
+
+// write password function 
 function writePassword(){
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  var passwordText = document.querySelector("#password"); // find the id#password in index.html
+  passwordText.value = password; // paste the randomly generated password in the id#password field
 }
 
 // Add event listener to generate button
@@ -27,33 +28,35 @@ function generatePassword(){
   //ask the user how many characters they want
   var length = prompt("How many characters in your random password? (between 8 and 128)");
   if(isNaN(length)){
-    alert("You must input a number!");
+    alert("Come on! That's not even a number! Enter a number between 8 and 128, please.");
     return generatePassword() // return to start if user enters a Not a Number
   }
   if(length < 8 || length > 128){
-    alert("Please choose numbers between 8 - 128!");
+    alert("That wasn't between 8 and 128, try again!");
     return generatePassword() // return to start if user enters less than 8 or greater than 128
   }
-  //ask the user if they want to include upper, lower, num, special?
-  var hasUpper = confirm("Include upper case letters?");
-  var hasLower = confirm("Include lower case letters?");
-  var hasNumbers = confirm("Include numbers?");
-  var hasSpecial = confirm("Include special characters?");
 
+  //ask the user if they want to include upper, lower, num, special?
+  var includeUpper = confirm("Include upper case letters?");
+  var includeLower = confirm("Include lower case letters?");
+  var includeNumbers = confirm("Include numbers?");
+  var includeSpecial = confirm("Include special characters?");
+
+  // if the user clicks cancel on all character types!
   if(!hasUpper && !hasLower && !hasNumbers && !hasSpecial){
-    alert("You must at least choose 1 character type!");
-    return generatePassword()
+    alert("How are you going to create a password with no character types? Start over!");
+    return generatePassword() // is there a way to start this at -var includeUpper...?
   }
-  if(hasUpper){
+  if(includeUpper){
     chosenCharacters += upper
   }
-  if(hasLower){
+  if(includeLower){
     chosenCharacters += lower
   }
-  if(hasNumbers) {
+  if(includeNumbers) {
     chosenCharacters += numbers
   }
-  if(hasSpecial) {
+  if(includeSpecial) {
     chosenCharacters += special
   }
 for (var i = 0; i < length; i++) {
@@ -61,6 +64,8 @@ for (var i = 0; i < length; i++) {
 }
 return result;
 }
+
+
 
 // copy to clipboard
 var copyBtn = document.getElementById("copy"); //gets the id: #copy from index.html
