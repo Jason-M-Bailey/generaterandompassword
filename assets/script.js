@@ -1,7 +1,7 @@
-// Assignment Code
+// assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Assigned variables
+// assigned variables
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lower = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "0123456789";
@@ -9,20 +9,21 @@ var special = "!@,#$%&*{}[]/\\+=";
 
 var chosenCharacters = ""; // this is a bucket where the other arrays are added, then we'll use a charAt to randomly pick characters from the string
 
-// write password function
+// write password function into the deployed page
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password"); // find the id#password in index.html
   passwordText.value = password; // paste the randomly generated password in the id#password field
 }
 
-// Add event listener to generate button
+// event listener when the user clicks the generate password button
 generateBtn.addEventListener("click", writePassword);
 
 //generate password function gets called in writePassword function, and it should return the final password
 function generatePassword() {
+
   //do random generation here and return the final password in the end
-  var result = "";
+  var result = ""; // empty bucket where our math.random will add characters
 
   //ask the user how many characters they want
   var length = prompt(
@@ -38,6 +39,8 @@ function generatePassword() {
     alert("That wasn't between 8 and 128, try again!");
     return generatePassword(); // return to start if user enters less than 8 or greater than 128
   }
+
+  // now that user has entered a valid number, we move forward
 
   //ask the user if they want to include upper, lower, num, special?
   var includeUpper = confirm("Include upper case letters?");
