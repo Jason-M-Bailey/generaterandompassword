@@ -43,7 +43,7 @@ function generatePassword(){
   var includeSpecial = confirm("Include special characters?");
 
   // if the user clicks cancel on all character types!
-  if(!hasUpper && !hasLower && !hasNumbers && !hasSpecial){
+  if(!includeUpper && !includeLower && !includeNumbers && !includeSpecial){
     alert("How are you going to create a password with no character types? Start over!");
     return generatePassword() // is there a way to start this at -var includeUpper...?
   }
