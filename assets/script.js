@@ -1,4 +1,4 @@
-// assignment Code
+// assignment code
 var generateBtn = document.querySelector("#generate");
 
 // assigned variables
@@ -7,7 +7,7 @@ var lower = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "0123456789";
 var special = "#$%&'()*+,-./:;<=>?@[\]^_`{|}~"; 
 
-var chosenCharacters = ""; // this is a bucket where the other arrays are added, then we'll use a charAt to randomly pick characters from the string
+var chosenCharacters = ""; // this is a bucket where the other arrays are added, then we'll randomly pick characters from the string
 
 // write password function into the deployed page
 function writePassword() {
@@ -27,7 +27,7 @@ function generatePassword() {
 
   //ask the user how many characters they want
   var length = prompt(
-    "How many characters in your random password? (between 8 and 128)"
+    "How many characters do you want in your random password? (between 8 and 128)"
   );
   if (isNaN(length)) {
     alert(
@@ -42,7 +42,7 @@ function generatePassword() {
 
   // now that user has entered a valid number, we move forward
 
-  //ask the user if they want to include upper, lower, num, special?
+  // ask the user if they want to include upper, lower, num, special?
   var includeUpper = confirm("Include upper case letters?");
   var includeLower = confirm("Include lower case letters?");
   var includeNumbers = confirm("Include numbers?");
