@@ -5,7 +5,7 @@ var generateBtn = document.querySelector("#generate");
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lower = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "0123456789";
-var special = "!@,#$%&*{}[]/\\+=";
+var special = "#$%&'()*+,-./:;<=>?@[\]^_`{|}~"; 
 
 var chosenCharacters = ""; // this is a bucket where the other arrays are added, then we'll use a charAt to randomly pick characters from the string
 
