@@ -1,3 +1,4 @@
+[Generate Random Password Flowchart.pdf](https://github.com/Jason-M-Bailey/generaterandompassword/files/6476013/Generate.Random.Password.Flowchart.pdf)
 # generaterandompassword
 Generate a Random Password using Javascript prompts
 
