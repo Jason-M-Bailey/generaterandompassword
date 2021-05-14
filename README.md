@@ -4,6 +4,8 @@ Generate a Random Password using Javascript prompts
 
 Deployed: https://jason-m-bailey.github.io/generaterandompassword/
 
+Create an intuitive, easy to use page to assist the user in generating a randomly created password from prompts. 
+
 
 # 03 JavaScript: Password Generator
 
