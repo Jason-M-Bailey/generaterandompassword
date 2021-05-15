@@ -9,6 +9,9 @@ var special = "#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
 var chosenCharacters = ""; // this is a bucket where the other arrays are added, then we'll randomly pick characters from the string
 
+// event listener when the user clicks the generate password button
+generateBtn.addEventListener("click", writePassword);
+
 // write password function into the deployed page
 function writePassword() {
   var password = generatePassword();
@@ -16,16 +19,13 @@ function writePassword() {
   passwordText.value = password; // paste the randomly generated password in the id#password field
 }
 
-// event listener when the user clicks the generate password button
-generateBtn.addEventListener("click", writePassword);
-
-//generate password function gets called in writePassword function, and it should return the final password
+// generate password function gets called in writePassword function, and it should return the final password
 function generatePassword() {
 
-  //do random generation here and return the final password in the end
+  // do random generation here and return the final password in the end
   var result = ""; // empty bucket where our math.random will add characters
 
-  //ask the user how many characters they want
+  // ask the user how many characters they want
   var length = prompt(
     "How many characters do you want in your random password? (between 8 and 128)"
   );
@@ -53,7 +53,7 @@ function generatePassword() {
     alert(
       "How are you going to create a password with no character types? Start over!"
     );
-    return generatePassword(); // is there a way to start this at -var includeUpper...?
+    return generatePassword(); // should we create a new function so the user restarts at the first character confirm prompt?
   }
   if (includeUpper) {
     chosenCharacters += upper;
@@ -75,11 +75,11 @@ function generatePassword() {
   return result;
 }
 
+
 // copy to clipboard
 var copyBtn = document.getElementById("copy"); //gets the id: #copy from index.html
 
-copyBtn.addEventListener("click", () => {
-  //when the button is clicked do something
+copyBtn.addEventListener("click", () => { //when the button is clicked do something
   password.select(); // this is defined earlier by id #password as the text box, so select the contents of this text box
   document.execCommand("copy"); // copies to clipboard
   alert("Password Copied"); // creates popup at top of screen with message
