@@ -22,22 +22,25 @@ function writePassword() {
 // generate password function gets called in writePassword function, and it should return the final password
 function generatePassword() {
 
-  // do random generation here and return the final password in the end
   var result = ""; // empty bucket where our math.random will add characters
 
   // ask the user how many characters they want
   var length = prompt(
     "How many characters do you want in your random password? (between 8 and 128)"
   );
+
+  // return to start if user enters a Not a Number
   if (isNaN(length)) {
     alert(
       "Come on! That's not even a number! Enter a number between 8 and 128, please."
     );
-    return generatePassword(); // return to start if user enters a Not a Number
+    return generatePassword(); 
   }
+
+  // return to start if user enters less than 8 or greater than 128
   if (length < 8 || length > 128) {
     alert("That wasn't between 8 and 128, try again!");
-    return generatePassword(); // return to start if user enters less than 8 or greater than 128
+    return generatePassword(); 
   }
 
   // now that user has entered a valid number, we move forward
@@ -48,13 +51,15 @@ function generatePassword() {
   var includeNumbers = confirm("Include numbers?");
   var includeSpecial = confirm("Include special characters?");
 
-  // if the user clicks cancel on all character types!
-  if (!includeUpper && !includeLower && !includeNumbers && !includeSpecial) {
-    alert(
-      "How are you going to create a password with no character types? Start over!"
-    );
-    return generatePassword(); // should we create a new function so the user restarts at the first character confirm prompt?
-  }
+    // if the user clicks cancel on all character types!
+    if (!includeUpper && !includeLower && !includeNumbers && !includeSpecial) {
+      alert(
+        "How are you going to create a password with no character types? Start over!"
+      );
+      return generatePassword(); // should we create a new function so the user restarts at the first character confirm prompt?
+    }
+
+  // if true, add to new bucket  
   if (includeUpper) {
     chosenCharacters += upper;
   }
@@ -67,20 +72,23 @@ function generatePassword() {
   if (includeSpecial) {
     chosenCharacters += special;
   }
+
+  // randomly pick a character from new array and add to result until length is hit
   for (var i = 0; i < length; i++) {
     result += chosenCharacters.charAt(
       Math.floor(Math.random() * chosenCharacters.length)
     );
   }
+
   return result;
 }
 
 
 // copy to clipboard
-var copyBtn = document.getElementById("copy"); //gets the id: #copy from index.html
+var copyBtn = document.getElementById("copy");
 
-copyBtn.addEventListener("click", () => { //when the button is clicked do something
-  password.select(); // this is defined earlier by id #password as the text box, so select the contents of this text box
-  document.execCommand("copy"); // copies to clipboard
-  alert("Password Copied"); // creates popup at top of screen with message
+copyBtn.addEventListener("click", () => { 
+  password.select(); 
+  document.execCommand("copy"); 
+  alert("Password Copied"); 
 });
