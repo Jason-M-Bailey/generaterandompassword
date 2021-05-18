@@ -1,13 +1,14 @@
-![Generate Random Password 01](https://user-images.githubusercontent.com/23285473/118683752-a2a88b00-b7cf-11eb-9622-36abb93154bb.jpg)
-![Generate Random Password 02](https://user-images.githubusercontent.com/23285473/118683755-a3412180-b7cf-11eb-9d0e-39fddf449993.jpg)
 [Generate Random Password Flowchart.pdf](https://github.com/Jason-M-Bailey/generaterandompassword/files/6476013/Generate.Random.Password.Flowchart.pdf)
 # generaterandompassword
 Generate a Random Password using Javascript prompts
 
 Deployed: https://jason-m-bailey.github.io/generaterandompassword/
 
+
 Create an intuitive, easy to use page to assist the user in generating a randomly created password from prompts. 
 
+![Generate Random Password 01](https://user-images.githubusercontent.com/23285473/118683752-a2a88b00-b7cf-11eb-9622-36abb93154bb.jpg)
+![Generate Random Password 02](https://user-images.githubusercontent.com/23285473/118683755-a3412180-b7cf-11eb-9d0e-39fddf449993.jpg)
 
 # 03 JavaScript: Password Generator
 
