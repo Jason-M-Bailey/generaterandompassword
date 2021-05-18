@@ -5,7 +5,7 @@ var generateBtn = document.querySelector("#generate");
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lower = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "0123456789";
-var special = "#$%&'()*+,-./:;<=>?@[\]^_`{|}~"; 
+var special = "#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
 var chosenCharacters = ""; // this is a bucket where the other arrays are added, then we'll randomly pick characters from the string
 
@@ -21,7 +21,6 @@ function writePassword() {
 
 // generate password function gets called in writePassword function, and it should return the final password
 function generatePassword() {
-
   var result = ""; // empty bucket where our math.random will add characters
 
   // ask the user how many characters they want
@@ -34,13 +33,13 @@ function generatePassword() {
     alert(
       "Come on! That's not even a number! Enter a number between 8 and 128, please."
     );
-    return generatePassword(); 
+    return generatePassword();
   }
 
   // return to start if user enters less than 8 or greater than 128
   if (length < 8 || length > 128) {
     alert("That wasn't between 8 and 128, try again!");
-    return generatePassword(); 
+    return generatePassword();
   }
 
   // now that user has entered a valid number, we move forward
@@ -51,15 +50,15 @@ function generatePassword() {
   var includeNumbers = confirm("Include numbers?");
   var includeSpecial = confirm("Include special characters?");
 
-    // if the user clicks cancel on all character types!
-    if (!includeUpper && !includeLower && !includeNumbers && !includeSpecial) {
-      alert(
-        "How are you going to create a password with no character types? Start over!"
-      );
-      return generatePassword(); // should we create a new function so the user restarts at the first character confirm prompt?
-    }
+  // if the user clicks cancel on all character types!
+  if (!includeUpper && !includeLower && !includeNumbers && !includeSpecial) {
+    alert(
+      "How are you going to create a password with no character types? Start over!"
+    );
+    return generatePassword(); // should we create a new function so the user restarts at the first character confirm prompt?
+  }
 
-  // if true, add to new bucket  
+  // if true, add to new bucket
   if (includeUpper) {
     chosenCharacters += upper;
   }
@@ -83,12 +82,11 @@ function generatePassword() {
   return result;
 }
 
-
 // copy to clipboard
 var copyBtn = document.getElementById("copy");
 
-copyBtn.addEventListener("click", () => { 
-  password.select(); 
-  document.execCommand("copy"); 
-  alert("Password Copied"); 
+copyBtn.addEventListener("click", () => {
+  password.select();
+  document.execCommand("copy");
+  alert("Password Copied");
 });
